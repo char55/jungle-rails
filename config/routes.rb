@@ -2,13 +2,6 @@ Rails.application.routes.draw do
 
   root to: 'products#index'
 
-  # resource :users, only: [:show] do
-  #   get     :login
-  #   post    :login
-  #   get     :registration
-  #   post    :registration
-  # end
-
   resources :products, only: [:index, :show]
   resources :categories, only: [:show]
 
