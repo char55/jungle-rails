@@ -12,7 +12,6 @@ class OrdersController < ApplicationController
     charge = perform_stripe_charge
     order  = create_order(charge)
     items = order.line_items
-    @products = Product.all
 
     if order.valid?
       empty_cart!
