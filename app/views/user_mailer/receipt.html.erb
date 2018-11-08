@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>RECEIPT</h1>
+    <p>
+      <%= @account[:user] %>
+      You have successfully made a purcahse at JungleRails!<br>
+    </p>
+   <% @account[:items].each do |item| %>
+   <p>
+    <%=[item[:product_id].to_i]%>
+          <%= @products[item[:product_id].to_i].name %> X <%= item[:quantity].to_i %>
+   </p>
+    <% end %>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
