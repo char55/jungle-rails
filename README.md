@@ -29,10 +29,10 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 
 ## Photo examples
 
-![https://github.com/char55/jungle-rails/blob/master/public/readme_pics/basicAutho.png]()
+![](https://github.com/char55/jungle-rails/blob/master/public/readme_pics/basicAutho.png)
 
-![https://github.com/char55/jungle-rails/blob/master/public/readme_pics/order.png]()
+![](https://github.com/char55/jungle-rails/blob/master/public/readme_pics/order.png)
 
-![https://github.com/char55/jungle-rails/blob/master/public/readme_pics/reviews.png]()
+![](https://github.com/char55/jungle-rails/blob/master/public/readme_pics/reviews.png)
 ## Website Abilities
 
