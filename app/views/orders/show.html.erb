@@ -22,7 +22,7 @@
       </thead>
       <tbody>
         <% @line_item.each do |d|  %>
-        <%= render 'purchase', product: @products[d[:product_id].to_i], quantity: d[:quantity].to_i %>
+        <%= render 'purchase', product: @products.find(d[:product_id].to_i), quantity: d[:quantity].to_i %>
         <% end %>
       </tbody>
       <tfoot>

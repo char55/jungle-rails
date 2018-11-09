@@ -12,8 +12,7 @@
     </p>
    <% @account[:items].each do |item| %>
    <p>
-    <%=[item[:product_id].to_i]%>
-          <%= @products[item[:product_id].to_i].name %> X <%= item[:quantity].to_i %>
+          <%= @products.find(item[:product_id].to_i).name %> X <%= item[:quantity].to_i %>
    </p>
     <% end %>
     <p>Thanks for joining and have a great day!</p>
