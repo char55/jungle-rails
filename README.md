@@ -29,10 +29,36 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 
 ## Photo examples
 
-![](https://github.com/char55/jungle-rails/blob/master/public/readme_pics/basicAutho.png)
+![Reviews can be made and deleted by same user](https://github.com/char55/jungle-rails/blob/master/public/readme_pics/reviews.png)
 
-![](https://github.com/char55/jungle-rails/blob/master/public/readme_pics/order.png)
+![basic HTML authorization needed for access to admin pages](https://github.com/char55/jungle-rails/blob/master/public/readme_pics/basicAutho.png)
 
-![](https://github.com/char55/jungle-rails/blob/master/public/readme_pics/reviews.png)
-## Website Abilities
+![after a purchase is made - user can view their order (email is also sent)](https://github.com/char55/jungle-rails/blob/master/public/readme_pics/order.png)
+
+
+## Features
+
+* User can look over catalogue of items
+  * add them to cart with a button click adding the item to the cart
+* Cart is located top right corner
+  * user can increase quantity of each item in their cart
+  * user can delete any item they no longer desire from their cart
+* Each product has
+  * a name
+  * a description
+  * a price
+  * a catagory
+  * reviews
+    * a numbered rating and a review description
+    * All visitors can view reviews
+    * Users must be logged in to post reviews
+    * Users can delete a review they previously wrote
+
+
+* Admin control
+  * requires basic HTML authorization to access
+  * can create/add a new category
+  * can delete any new category
+  * can create/add a new product
+  * can delete any a new product
 
