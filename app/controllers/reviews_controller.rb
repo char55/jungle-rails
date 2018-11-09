@@ -22,4 +22,6 @@ class ReviewsController < ApplicationController
     @review.destroy
     redirect_to :back, notice: 'Product deleted!'
   end
+
 end
+
