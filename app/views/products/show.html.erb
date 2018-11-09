@@ -25,7 +25,12 @@
         </dl>
       </div>
     </div>
-
+    <div>
+      <h2>REVIEWS</h2>
+      <% @reviews.each do |r| %>
+      <%= render 'review', review: r %>
+      <% end %>
+    </div>
   </article>
 
 </section>
