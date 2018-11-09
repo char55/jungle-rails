@@ -17,7 +17,9 @@ class ReviewsController < ApplicationController
       end
   end
 
-  def edit_review
-
+  def destroy
+    @review = Review.find params[:id]
+    @review.destroy
+    redirect_to :back, notice: 'Product deleted!'
   end
 end

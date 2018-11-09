@@ -47,13 +47,21 @@
 <% end %>
 
 
+<table class="table table-bordered">
+    <h2>REVIEWS</h2>
+  <thead>
+          <tr>
+          <th colspan="2">Rating</th>
+        </tr>
+  </thead>
+      <tbody>
+          <% @reviews.each do |r| %>
+          <%= render 'review', review: r %>
+          <% end %>
+      </tbody>
+</table>
 
-    <div>
-      <h2>REVIEWS</h2>
-      <% @reviews.each do |r| %>
-      <%= render 'review', review: r %>
-      <% end %>
-    </div>
+
   </article>
 
 </section>

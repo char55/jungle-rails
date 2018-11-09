@@ -1,8 +1,17 @@
-<div>
 
- <h3>
-<%= review.rating%> / 5 stars
- </h3>
-  <%= review.description %>
+<tr>
+  <td>
+    <% if(current_user.id == review.user_id) %>
+    <%= link_to fa_icon('trash'), [@product, review], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+    <% end %>
+    <h3>
+    <%= review.rating%> / 5 stars
+    </h3>
+  </td>
+  <td>
+    <%= review.description %>
+  </td>
 
-</div>
+</tr>
+
+
