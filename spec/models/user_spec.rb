@@ -2,42 +2,61 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   describe 'Validates' do
-    subject {described_class.new(
-      name: 'person',
-      email: 'something@email.com',
-      password: 'something',
-      password_confirmation: 'something'
-    )}
+
+    before (:each) do
+      @subject  = User.new({
+        name: 'person',
+        email: 'something@email.com',
+        password: 'something',
+        password_confirmation: 'something'
+      })
+    end
+
 
     it 'is valid with valid attributes' do
-      expect(subject).to be_valid
+      expect(@subject).to be_valid
     end
 
    it 'is not valid without name' do
-      subject.name = nil
-      expect(subject).to_not be_valid
+      @subject.name = nil
+      expect(@subject).to_not be_valid
     end
 
    it 'is not valid without email' do
-      subject.email = nil
-      expect(subject).to_not be_valid
+      @subject.email = nil
+      expect(@subject).to_not be_valid
     end
 
     it 'is not valid with non-valid attributes' do
-      non_subject = User.new(
+      non_subject = User.new({
         name: 'person',
         email: 'something@email.com',
         password: 'something',
         password_confirmation: 'otherthing'
-      )
+      })
       expect(non_subject).to_not be_valid
     end
-
-    it 'is not permitted to have non-unique emails (case insensitive)' do
-      testUser = described_class.find_by_email('SOMETHING@email.com')
-      expect(testUser).to eql(nil)
+    
+    it 'is must have unique emails (case insensitive)' do
+      @subject.save()
+      test_subject = User.new({
+        name: 'person2',
+        email: 'SOMETHING@email.com',
+        password: 'something',
+        password_confirmation: 'something'
+      })
+      expect(test_subject).to_not be_valid
     end
 
+    it 'password must have minimum length' do
+      test_subject = User.new({
+        name: 'person2',
+        email: 'SOMETHING@email.com',
+        password: 'a',
+        password_confirmation: 'a'
+      })
+      expect(test_subject).to_not be_valid
+    end
 
   end
 
