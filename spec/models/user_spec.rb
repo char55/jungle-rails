@@ -60,10 +60,42 @@ RSpec.describe User, type: :model do
 
   end
 
-end
+  describe '.authenticate_with_credentials' do
+    before (:each) do
+      @subject  = User.create({
+        name: 'person',
+        email: 'someTHING@email.com',
+        password: 'something',
+        password_confirmation: 'something'
+      })
+      # @subject.save
+    end
 
-# It must be created with a password and password_confirmation fields
-# These need to match so you should have an example for where they are not the same
-# These are required when creating the model so you should also have an example for this
-# Emails must be unique (not case sensitive; for example, TEST@TEST.com should not be allowed if test@test.COM is in the database)
-# Email, first name, and last name should also be required
+    it 'should be valid if authentication sucessful' do
+      user = User.authenticate_with_credentials('something@email.com', 'something')
+      expect(user).to eql(@subject)
+    end
+
+    it 'should be valid if authentication sucessful - case insensitive' do
+      user = User.authenticate_with_credentials('SOMETHING@email.com', 'something')
+      expect(user).to eql(@subject)
+    end
+
+    it 'should be valid if authentication sucessful - with whitespaces' do
+      user = User.authenticate_with_credentials('   something@email.com', 'something')
+      expect(user).to eql(@subject)
+    end
+
+    it 'should returns nil if authentication fail - wrong password' do
+      user = User.authenticate_with_credentials('something@email.com', 'otherthing')
+      expect(user).to eql(nil)
+    end
+
+    it 'should returns nil if authentication fail - wrong email' do
+      user = User.authenticate_with_credentials('poop@email.com', 'something')
+      expect(user).to eql(nil)
+    end
+
+  end
+
+end
