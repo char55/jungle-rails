@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Visitor navigates to home page", type: :feature, js: true do
+RSpec.feature "ProductDetails", type: :feature, js: true do
 
   # SETUP
   before :each do
@@ -17,13 +17,16 @@ RSpec.feature "Visitor navigates to home page", type: :feature, js: true do
     end
   end
 
-  scenario "They see all products" do
+  scenario "Visit a single products page" do
     # ACT
     visit root_path
+    click_on('Details', match: :first)
 
     # DEBUG / VERIFY
+    # puts page.html
     save_screenshot
-    expect(page).to have_css 'article.product', count: 10
+    expect(page).to have_css '.products-show'
+    save_screenshot
   end
 
 end
