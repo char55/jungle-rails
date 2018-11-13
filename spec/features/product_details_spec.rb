@@ -23,8 +23,6 @@ RSpec.feature "ProductDetails", type: :feature, js: true do
     click_on('Details', match: :first)
 
     # DEBUG / VERIFY
-    # puts page.html
-    save_screenshot
     expect(page).to have_css '.products-show'
     save_screenshot
   end
