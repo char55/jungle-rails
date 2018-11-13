@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
 
   private
     def downcase_email
-      self.email.downcase!
+      self.email.strip.downcase!
     end
 
 end
